@@ -1,0 +1,3 @@
+[submodule "minilibx-linux"]
+	path = minilibx-linux
+	url = git@vogsphere-v2.42madrid.com:vogsphere/intra-uuid-c9316cc7-1d58-4808-b1b5-de6fa32e9a2c-5564586-sanmetol

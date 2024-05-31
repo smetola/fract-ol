@@ -6,7 +6,7 @@
 /*   By: sanmetol <sanmetol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 15:41:25 by sanmetol          #+#    #+#             */
-/*   Updated: 2024/05/30 16:14:28 by sanmetol         ###   ########.fr       */
+/*   Updated: 2024/05/31 13:07:05 by sanmetol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,8 @@ int	main(int argc, char **argv)
 	else
 	{
 		ft_putstr_fd("Please enter: \n\t\"./fractol mandelbrot\" or "\
-		"\n\t\"./fractol julia <value_1> <value_2>\"", STDERR_FILENO);
+		"\n\t\"./fractol julia <value_1> <value_2>\" or "\
+		"\n\t\"./fractol mandelbrot_2\"", STDERR_FILENO);
 		exit(EXIT_FAILURE);
 	}
 }

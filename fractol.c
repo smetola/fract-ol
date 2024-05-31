@@ -6,7 +6,7 @@
 /*   By: sanmetol <sanmetol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 15:41:25 by sanmetol          #+#    #+#             */
-/*   Updated: 2024/05/31 13:07:05 by sanmetol         ###   ########.fr       */
+/*   Updated: 2024/05/31 13:16:04 by sanmetol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,5 +39,3 @@ int	main(int argc, char **argv)
 		exit(EXIT_FAILURE);
 	}
 }
-
-//gcc *c minilibx-linux/libmlx.a -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz

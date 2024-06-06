@@ -6,7 +6,7 @@
 /*   By: sanmetol <sanmetol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 19:25:28 by sanmetol          #+#    #+#             */
-/*   Updated: 2024/05/30 16:13:54 by sanmetol         ###   ########.fr       */
+/*   Updated: 2024/06/06 18:12:49 by sanmetol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,13 @@
 
 int	julia_track(int x, int y, t_fractal *fractal)
 {
-	if (fractal->julia_fractal != NULL)
-	{
-		fractal->julia_fractal->julia_x
-			= scale(x, -2, 2, WIDTH) * fractal->zoom + fractal->shift_x;
-		fractal->julia_fractal->julia_y
-			= scale(y, 2, -2, HEIGHT) * fractal->zoom + fractal->shift_y;
-		fractal_render(fractal->julia_fractal);
-	}
-	else
-		fractal_render(fractal);
+	if (fractal->julia_fractal == NULL)
+		return (0);
+	fractal->julia_fractal->julia_x
+		= scale(x, -2, 2, WIDTH) * fractal->zoom + fractal->shift_x;
+	fractal->julia_fractal->julia_y
+		= scale(y, 2, -2, HEIGHT) * fractal->zoom + fractal->shift_y;
+	fractal_render(fractal->julia_fractal);
 	return (0);
 }
 
@@ -74,13 +71,13 @@ int	key_handler(int keysym, t_fractal *fractal)
 	if (keysym == XK_Escape)
 		close_handler(fractal);
 	else if (keysym == XK_Left)
-		fractal->shift_x += 0.1;
-	else if (keysym == XK_Right)
 		fractal->shift_x -= 0.1;
+	else if (keysym == XK_Right)
+		fractal->shift_x += 0.1;
 	else if (keysym == XK_Up)
-		fractal->shift_y -= 0.1;
-	else if (keysym == XK_Down)
 		fractal->shift_y += 0.1;
+	else if (keysym == XK_Down)
+		fractal->shift_y -= 0.1;
 	else if (keysym == XK_plus)
 		fractal->iterations += 1;
 	else if (keysym == XK_minus && fractal->iterations > 1)

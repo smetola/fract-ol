@@ -6,7 +6,7 @@
 /*   By: sanmetol <sanmetol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 18:10:18 by sanmetol          #+#    #+#             */
-/*   Updated: 2024/05/29 15:36:42 by sanmetol         ###   ########.fr       */
+/*   Updated: 2024/06/06 17:52:52 by sanmetol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,32 +49,17 @@ void	malloc_error(void)
 	perror("Problems with malloc");
 	exit(EXIT_FAILURE);
 }
-
-double	atodbl(char *str)
+int	is_numeric(const char *str)
 {
-	long	int_part;
-	double	fraction_part;
-	double	pow;
-	int		neg;
-
-	int_part = 0;
-	fraction_part = 0;
-	neg = 1;
-	pow = 1;
-	while (*str == '\t' || *str == '\n' || *str == '\v'
-		|| *str == '\f' || *str == '\r' || *str == ' ')
+	if (*str == '-' || *str == '+')
 		str++;
-	if (*str == '+' || *str == '-')
-		if (*str++ == '-')
-			neg = -1;
-	while (*str != '.' && *str)
-		int_part = int_part * 10 + (*str++ - '0');
-	if (*str == '.')
-		str++;
+	if (!*str)
+		return (0);
 	while (*str)
 	{
-		pow /= 10;
-		fraction_part += (*str++ - '0') * pow;
+		if (*str != '.' && (*str < '0' || *str > '9'))
+			return (0);
+		str++;
 	}
-	return ((int_part + fraction_part) * neg);
+	return (1);
 }

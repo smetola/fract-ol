@@ -6,7 +6,7 @@
 /*   By: sanmetol <sanmetol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 17:43:14 by sanmetol          #+#    #+#             */
-/*   Updated: 2024/05/30 14:32:32 by sanmetol         ###   ########.fr       */
+/*   Updated: 2024/06/06 17:25:01 by sanmetol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,9 @@
 # include <X11/keysym.h>
 # include "minilibx-linux/mlx.h"
 
+# define ERROR_MS "Please enter: \n\t\"./fractol mandelbrot\" or "\
+		"\n\t\"./fractol julia <value_1> <value_2>\" or "\
+		"\n\t\"./fractol mandelbrot_2\""
 # define WIDTH 800
 # define HEIGHT 800
 # define BLACK 0x000000
@@ -57,6 +60,7 @@ typedef struct s_fractal
 }				t_fractal;
 
 int			ft_strncmp(const char *s1, const char *s2, size_t n);
+int			is_numeric(const char *str);
 void		ft_putstr_fd(char *s, int fd);
 void		malloc_error(void);
 double		atodbl(char *str);

@@ -6,7 +6,7 @@
 /*   By: sanmetol <sanmetol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 15:41:25 by sanmetol          #+#    #+#             */
-/*   Updated: 2024/05/31 13:16:58 by sanmetol         ###   ########.fr       */
+/*   Updated: 2024/06/06 17:57:09 by sanmetol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,11 @@ int	main(int argc, char **argv)
 {
 	t_fractal	fractal;
 
-	if ((argc == 2 && !ft_strncmp(argv[1], "mandelbrot", 10))
-		|| (argc == 4 && !ft_strncmp(argv[1], "julia", 5))
-		|| (argc == 2 && !ft_strncmp(argv[1], "mandelbrot_2", 12)))
+	if ((argc == 2 && !ft_strncmp(argv[1], "mandelbrot", 11))
+		|| (argc == 2 && !ft_strncmp(argv[1], "mandelbrot_2", 12))
+		|| (argc == 4 && !ft_strncmp(argv[1], "julia", 5)
+		&& (is_numeric(argv[2]) || is_numeric(argv[3])))
+		)
 	{
 		fractal.name = argv[1];
 		if (!ft_strncmp(fractal.name, "julia", 5))
@@ -33,9 +35,7 @@ int	main(int argc, char **argv)
 	}
 	else
 	{
-		ft_putstr_fd("Please enter: \n\t\"./fractol mandelbrot\" or "\
-		"\n\t\"./fractol julia <value_1> <value_2>\" or "\
-		"\n\t\"./fractol mandelbrot_2\"", STDERR_FILENO);
+		ft_putstr_fd(ERROR_MS, STDERR_FILENO);
 		exit(EXIT_FAILURE);
 	}
 }

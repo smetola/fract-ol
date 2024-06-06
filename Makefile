@@ -1,7 +1,7 @@
 NAME = fractol
 
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror -Iminilibx-linux -g
+CFLAGS = -Wall -Wextra -Werror -Iminilibx-linux
 LDFLAGS = -Lminilibx-linux -lmlx -lXext -lX11 -lm
 
 SRCS = fractol.c utils.c init.c events.c math.c render.c
